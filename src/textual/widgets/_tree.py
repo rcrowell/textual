@@ -69,14 +69,7 @@ class _TreeLine(Generic[TreeDataType]):
         Returns:
             Width in cells.
         """
-        if show_root:
-            return 2 + (max(0, len(self.path) - 1)) * guide_depth
-        else:
-            guides = 2
-            if len(self.path) > 1:
-                guides += (len(self.path) - 1) * guide_depth
-
-        return guides
+        return max(0, len(self.path) - 1) * guide_depth
 
 
 class TreeNodes(ImmutableSequenceView["TreeNode[TreeDataType]"]):
